@@ -31,7 +31,7 @@ phases:
       - echo "Waiting for scan to complete..."
       - sleep 30
       - SCAN_STATUS=$(aws ecr describe-image-scan-findings --repository-name base/node --image-id imageTag=$BUILD_TAG --query 'imageScanStatus.status' --output text)
-      - echo "Scan Status: $SCAN_STATUS"
+      - echo "Scan Status:$SCAN_STATUS"
       
       - aws ecr describe-image-scan-findings \
           --repository-name base/node \

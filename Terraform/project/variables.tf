@@ -10,3 +10,4 @@ variable "account_id" {}
 variable "defaultSSLCertificateARN" {}
 variable "frontendDomain" {}
 variable "githubConnection" {}
+variable "ecr_repo" {}

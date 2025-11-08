@@ -38,6 +38,7 @@ module "codeBuildProject" {
   account_id       = var.account_id
   aws_region       = var.aws_region
   githubConnection = var.githubConnection
+  ecr_repo         = var.ecr_repo
 }
 
 module "nodeAppPipeline" {

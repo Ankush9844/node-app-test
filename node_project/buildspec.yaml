@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_REGION: us-east-1
-    CONTAINER_NAME: node-app-test
+    CONTAINER_NAME: Node-App-Test
     REPOSITORY_URI: 600748199510.dkr.ecr.us-east-1.amazonaws.com/base/node
 
 phases:
@@ -13,7 +13,7 @@ phases:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 600748199510.dkr.ecr.us-east-1.amazonaws.com
       - export BUILD_TAG=build-$CODEBUILD_BUILD_NUMBER
       - echo "Build tag is $BUILD_TAG"
-  
+
   build:
     commands:
       - cd ./node_project
@@ -26,15 +26,15 @@ phases:
       - echo "Pushing the Docker image to ECR"
       - docker push $REPOSITORY_URI:$BUILD_TAG
       - echo "Image $REPOSITORY_URI:$BUILD_TAG built and pushed successfully"
-      
+
       - echo "Triggering ECR image scan..."
       - aws ecr start-image-scan --repository-name base/node --image-id imageTag=$BUILD_TAG
-  
+
       - echo "Waiting for scan to complete..."
       - sleep 15
       - SCAN_STATUS=$(aws ecr describe-image-scan-findings --repository-name base/node --image-id imageTag=$BUILD_TAG --query 'imageScanStatus.status' --output text)
       - echo "Scan Status:$SCAN_STATUS"
-      
+
       - aws ecr describe-image-scan-findings --repository-name base/node --image-id imageTag=$BUILD_TAG --query 'imageScanFindings.findingSeverityCounts'
 
       - echo "Writing imagedefinitions.json..."
@@ -42,5 +42,5 @@ phases:
       - cat imagedefinitions.json
 
 artifacts:
-    files: 
-      - imagedefinitions.json
+  files:
+    - imagedefinitions.json

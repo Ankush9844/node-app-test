@@ -5,13 +5,14 @@ env:
     AWS_REGION: us-east-1
     CONTAINER_NAME: node-app-test
     REPOSITORY_URI: 600748199510.dkr.ecr.us-east-1.amazonaws.com/base/node
-    BUILD_TAG: build-$CODEBUILD_BUILD_NUMBER
 
 phases:
   pre_build:
     commands:
       - echo "Logging to ECR"
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 600748199510.dkr.ecr.us-east-1.amazonaws.com
+      - export BUILD_TAG=build-$CODEBUILD_BUILD_NUMBER
+      - echo "Build tag is $BUILD_TAG"
   
   build:
     commands:
@@ -34,10 +35,7 @@ phases:
       - SCAN_STATUS=$(aws ecr describe-image-scan-findings --repository-name base/node --image-id imageTag=$BUILD_TAG --query 'imageScanStatus.status' --output text)
       - echo "Scan Status:$SCAN_STATUS"
       
-      - aws ecr describe-image-scan-findings \
-          --repository-name base/node \
-          --image-id imageTag=$BUILD_TAG \
-          --query 'imageScanFindings.findingSeverityCounts'
+      - aws ecr describe-image-scan-findings --repository-name base/node --image-id imageTag=$BUILD_TAG --query 'imageScanFindings.findingSeverityCounts'
 
       - echo "Writing imagedefinitions.json..."
       - printf '[{"name":"%s", "imageUri":"%s"}]' $CONTAINER_NAME $REPOSITORY_URI:$BUILD_TAG > imagedefinitions.json

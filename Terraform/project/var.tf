@@ -1,0 +1,12 @@
+variable "aws_profile" {}
+variable "region" {}
+variable "ProjectName" {}
+variable "cidrBlock" {}
+variable "containerImage" {}
+variable "containerName" {}
+variable "github_token" {}
+variable "aws_region" {}
+variable "account_id" {}
+variable "defaultSSLCertificateARN" {}
+variable "frontendDomain" {}
+variable "githubConnection" {}

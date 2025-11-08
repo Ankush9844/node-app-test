@@ -1,0 +1,2 @@
+variable "cidrBlock" {}
+variable "ProjectName" {}

@@ -1,4 +1,5 @@
-./node_project/node_modules
+node_project/node_modules
+**node_modules/
 
 # Ignore all .terraform directories and their contents
 **/.terraform/*

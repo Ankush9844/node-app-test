@@ -140,7 +140,7 @@ resource "aws_s3_bucket" "codepipeline_bucket" {
 # Create Pipeline for Container                                #
 ################################################################
 
-resource "aws_codepipeline" "chatappFrontendpipeline" {
+resource "aws_codepipeline" "nodeAppPipeline" {
   name     = "Node-App-Pipeline"
   role_arn = aws_iam_role.codepipelineRole.arn
 

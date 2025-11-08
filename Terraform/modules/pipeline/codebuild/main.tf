@@ -42,6 +42,7 @@ resource "aws_iam_role_policy" "allow_custom_policies" {
         Effect = "Allow",
         Action = [
           "codestar-connections:GetConnectionToken",
+          "codestar-connections:UseConnection",
           "codestar-connections:GetConnection",
           "codeconnections:GetConnectionToken",
           "codeconnections:GetConnection",
@@ -104,9 +105,9 @@ resource "aws_codebuild_project" "codeBuildProject" {
 
   source {
     type            = "GITHUB"
-    location        = "https://github.com/Ankush9844/auth_app.git"
+    location        = "https://github.com/Ankush9844/node-app-test.git"
     git_clone_depth = 1
-    buildspec       = "buildspec.yaml"
+    buildspec       = "node_project/buildspec.yaml"
     auth {
       type     = "CODECONNECTIONS"
       resource = data.aws_codestarconnections_connection.github.arn

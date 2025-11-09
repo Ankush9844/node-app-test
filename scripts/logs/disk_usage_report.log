@@ -1,0 +1,43 @@
+ 
+===============================================
+Disk Usage Report - 2025-11-09 12:56:44
+ 
+ALERT: /dev/nvme0n1p2 mounted on / is 37% > 20 full!
+OK: /dev/nvme0n1p1 mounted on /boot/efi is at 2% < 20 usage.
+===============================================
+Some partitions exceeded the threshold!
+Please take action to free up space.
+ 
+===============================================
+Disk Usage Report - 2025-11-09 12:56:45
+ 
+ALERT: /dev/nvme0n1p2 mounted on / is 37% > 20 full!
+OK: /dev/nvme0n1p1 mounted on /boot/efi is at 2% < 20 usage.
+===============================================
+Some partitions exceeded the threshold!
+Please take action to free up space.
+ 
+===============================================
+Disk Usage Report - 2025-11-09 12:57:14
+ 
+ALERT: /dev/nvme0n1p2 mounted on / is 37% > 20 full!
+OK: /dev/nvme0n1p1 mounted on /boot/efi is at 2% < 20 usage.
+----------------------------------------------
+Some partitions exceeded the threshold!
+Please take action to free up space.
+ 
+===============================================
+Disk Usage Report - 2025-11-09 12:57:14
+ 
+ALERT: /dev/nvme0n1p2 mounted on / is 37% > 20 full!
+OK: /dev/nvme0n1p1 mounted on /boot/efi is at 2% < 20 usage.
+----------------------------------------------
+Some partitions exceeded the threshold!
+Please take action to free up space.
+ 
+===============================================
+Disk Usage Report - 2025-11-09 13:02:31
+ 
+OK: /dev/nvme0n1p2 mounted on / is at 37% < 80 usage.
+OK: /dev/nvme0n1p1 mounted on /boot/efi is at 2% < 80 usage.
+All partitions are within safe usage limits.
